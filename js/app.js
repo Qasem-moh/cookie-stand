@@ -1,75 +1,93 @@
 "use strict";
-
-let list = ["am", "pm"];
+// let array of Hours is globale
+let hoursCookies = [
+  "6am",
+  "7am",
+  "8am",
+  "9am",
+  "10am",
+  "11am",
+  "12pm",
+  "1pm",
+  "2pm",
+  "3pm",
+  "4pm",
+  "5pm",
+  "6pm",
+  "7pm",
+];
 
 // define object
-let shop = {
-  arraryCookies: [16, 20, 35, 48, 56, 77, 93, 144, 119, 84, 61, 23, 42, 57],
-  maxHour: 0,
-  minHour: 0,
-  averageHoure: 0,
-  total: 0,
-  //found randome max number
-  DataMaxHour: function (max, min) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    this.maxHour = Math.floor(Math.random() * (max - min - 1) + min);
-  },
-  //found randome min number
-  DataMinHour: function (max, min) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    this.minHour = Math.floor(Math.random() * (max - min + 1) + min);
-    // push min number to array let mixN = [];
-  },
+let seattleCookies = {
+  //define max&min&average
+  StoreName: "Seattle",
+  maxCustomrePerHour: 65,
+  minCustomrePerHour: 23,
+  averagCustomrePerHour: 6.3,
+  randomeCustomrePerHour: [],
+  salesCustomrePerHour: [],
 
-  //found randome type time pm or am
-  get_random: function (list) {
-    return list[Math.floor(Math.random() * list.length)];
-  },
-  get_random_cookikes: function (cookie) {
-    return cookie[Math.floor(Math.random() * cookie.length)];
-  },
+  totalCustomrePerHour: 0,
 
-  drawElements: function () {
-    let divElement = document.getElementById("container");
-    let articleElement = document.createElement("article");
-    divElement.appendChild(articleElement);
-    let h2Element = document.createElement("h2");
-    h2Element.textContent = "Seattle";
-    articleElement.appendChild(h2Element);
-
-    //create unoreder list
-    let ulElement = document.createElement("ul");
-    articleElement.appendChild(ulElement);
-    // create for loop
-    for (let i = 0; i < shop.arraryCookies.length; i++) {
-      // define liElements to create li elements
-      let liElements = document.createElement("li");
-      // add content to li
-      liElements.textContent =
-        this.maxHour +
-        " " +
-        shop.get_random(list) +
-        ":" +
-        "  " +
-        this.arraryCookies[i] +
-        "  cookies";
-      ulElement.appendChild(liElements);
-      // add ++ to make randome number between 1 to 24 numbers of day hours
-      this.maxHour++;
-      this.total += this.arraryCookies[i];
+  //found randome randomeCustomrePerHour number
+  randomeCustomrePerHourNumber: function (min,max) {
+    for (let randhour = 0; randhour < hoursCookies.length; randhour++) {
+      this.randomeCustomrePerHour.push(
+        Math.floor(
+          Math.random() *
+            (this.maxCustomrePerHour - this.minCustomrePerHour + 1) +
+            this.minCustomrePerHour
+        )
+      );
+      
+// console.log(this.randomeCustomrePerHour)
     }
-    // total cookies
-    let litotal = document.createElement("li");
-    litotal.textContent = `Total: ${this.total} cookies`;
-    ulElement.appendChild(litotal);
+    
+  },
+  
+  // found averagCustomrePerHour and do totalCustomrePerHour
+  salesCustomrePerHourAv: function() {
+    for (let i = 0; i < hoursCookies.length; i++) {
+      this.salesCustomrePerHour.push(
+        Math.ceil(
+        this.randomeCustomrePerHour[i] * this.averagCustomrePerHour
+        )
+        );
+      // console.log(this.salesCustomrePerHour[i])
+      //assign value to totalCustomrePerHour
+      this.totalCustomrePerHour += this.salesCustomrePerHour[i];
+    }
+  },
+
+  ///
+  renderDataInHtml: function () {
+    //define conatner to render Element
+    let container = document.getElementById("container");
+    //define title Seattle
+    let h3Element = document.createElement("h3");
+    // append h3 to conatiner
+    container.appendChild(h3Element);
+    // assign value to h3
+    h3Element.textContent = this.StoreName;
+    //define create unorder list
+    let ulElement = document.createElement("ul");
+    //append unorder list to container
+    container.appendChild(ulElement);
+
+    for (let index = 0; index < hoursCookies.length; index++) {
+      let liElement = document.createElement("li");
+      ulElement.appendChild(liElement);
+      liElement.textContent = `${hoursCookies[index]}:${this.salesCustomrePerHour[index]} cookies`;
+    }
   },
 };
 
-//add numbers to randome
-shop.DataMaxHour(1, 12);
-shop.DataMinHour(1, 5);
+//called function
 
-// called function to draw html elements
-shop.drawElements();
+seattleCookies.randomeCustomrePerHourNumber(seattleCookies.minCustomrePerHour,seattleCookies.maxCustomrePerHour);
+
+seattleCookies.salesCustomrePerHourAv();
+seattleCookies.renderDataInHtml();
+
+// console.log(seattleCooki--es.randomeCustomrePerHour);
+// console.log(seattleCookies.salesCustomrePerHour);
