@@ -16,7 +16,7 @@ let hoursCookies = [
   '6pm',
   '7pm',
 ];
-
+let stores = [];
 function Store(locationName, Max, Min, avg) {
   this.locationName = locationName;
   this.Max = Max;
@@ -25,6 +25,7 @@ function Store(locationName, Max, Min, avg) {
   this.cookiePerHour = [];
   this.randomCou = [];
   this.total = 0;
+  stores.push(this);
 }
 
 Store.prototype.RandCook = function () {
@@ -68,15 +69,15 @@ Store.prototype.render = function () {
   let tdTableData = document.createElement('td');
   trTableData.appendChild(tdTableData);
   // eslint-disable-next-line no-undef
-  tdTableData.textContent=this.locationName;
+  tdTableData.textContent = this.locationName;
   for (let index = 0; index < this.cookiePerHour.length; index++) {
     let tdTableData = document.createElement('td');
     trTableData.appendChild(tdTableData);
-    tdTableData.textContent=this.cookiePerHour[index];
+    tdTableData.textContent = this.cookiePerHour[index];
   }
   let tdTableData1 = document.createElement('td');
   trTableData.appendChild(tdTableData1);
-  tdTableData1.textContent=this.total;
+  tdTableData1.textContent = this.total;
 };
 
 let Seattle = new Store('Seattle', 65, 23, 6.3);
@@ -115,3 +116,31 @@ Paris.CalRandome();
 // eslint-disable-next-line new-cap
 Paris.RandCook();
 Paris.render();
+console.log(stores);
+//  console.log(stores[0].cookiePerHour[0])
+let trTableData = document.createElement('tr');
+tableElement.appendChild(trTableData);
+let tdTableData = document.createElement('td');
+trTableData.appendChild(tdTableData);
+tdTableData.textContent = 'Total';
+
+
+let sumTotal=0;
+for (let i=0;i<stores.length;i++){
+  sumTotal+=stores[i].total;
+}
+for (let i = 0; i < hoursCookies.length; i++) {
+  let sumResult = 0;
+  for (let index = 0; index < stores.length; index++) {
+    let dataFromArray = stores[index].cookiePerHour[i];
+    sumResult += dataFromArray;
+
+  }
+  let tdTableData = document.createElement('td');
+  tdTableData.textContent=sumResult;
+  trTableData.appendChild(tdTableData);
+  console.log('the result: ' + sumResult);
+}
+let tdTotail=document.createElement('td');
+trTableData.appendChild(tdTotail);
+tdTotail.textContent=sumTotal;
