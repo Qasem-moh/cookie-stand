@@ -144,3 +144,11 @@ for (let i = 0; i < hoursCookies.length; i++) {
 let tdTotail=document.createElement('td');
 trTableData.appendChild(tdTotail);
 tdTotail.textContent=sumTotal;
+
+
+
+
+
+
+
+/************************** */
