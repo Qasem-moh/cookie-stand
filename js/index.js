@@ -152,3 +152,11 @@ tdTotail.textContent=sumTotal;
 
 
 /************************** */
+const chk = document.getElementById('chk');
+
+chk.addEventListener('change', () => {
+  document.body.classList.toggle('dark');
+  // document.body.style.color='white';
+});
+
+// chk.body.setAttribute("body","ds")
