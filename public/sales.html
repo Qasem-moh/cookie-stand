@@ -4,26 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/sales.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/sales.css" />
+    <link rel="stylesheet" href="../css/check.css" />
+
     <title>sales</title>
   </head>
   <body>
     <header>
       <nav>
         <ul>
-          <li><a href="/index.html">Home</a></li>
+          <li><a href="../index.html">Home</a></li>
           <li><a href="./sales.html">Sales</a></li>
           <li><a href="./contact.html">contact</a></li>
-        <li><a href="./about.html">About</a></li>
-        <li>hours open at 6AM To 7Pm </li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./store.htm">store</a></li>
+          <li><a href="./order-processing.html">order-processing</a></li>
+          <li>hours open at 6AM To 7Pm</li>
         </ul>
       </nav>
     </header>
     <main>
-     <h1>Welcome In Cookie Stande</h1>
+      <h1>Welcome In Cookie Stande</h1>
+      <!--check mode-->
+      <div>
+        <input type="checkbox" class="checkbox" id="chk" />
+        <label class="label" for="chk">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
+        </label>
+      </div>
+
+      <!---check mode-->
     </main>
     <footer></footer>
-
+    <script src="../js/check.js"></script>
   </body>
 </html>
