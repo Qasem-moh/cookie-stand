@@ -1,12 +1,20 @@
-
+*{
+  box-sizing: border-box;
+}
+table{
+  margin: auto;
+}
 table,
 tr,
 th,
 td {
-  border: 1px solid red;
+  border: 3px solid rgb(15, 69, 114);
   justify-content: center;
   align-items: center;
   justify-items: center;
+  border-style: groove;
+  text-align: center;
+  padding: 15px;
 }
 nav {
   width: 100%;
