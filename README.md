@@ -1,2 +1,2 @@
 # cookie-stand
-resolve Question once
+Cookie Stand 
