@@ -16,6 +16,7 @@ let hoursCookies = [
   '6pm',
   '7pm',
 ];
+let stores2 = [];
 let stores = [];
 function Store(locationName, Max, Min, avg) {
   this.locationName = locationName;
@@ -37,7 +38,7 @@ Store.prototype.RandCook = function () {
 };
 /*************************** */
 Store.prototype.CalRandome = function () {
-  console.log(this.Max);
+  // console.log(this.Max);
   for (let i = 0; i < hoursCookies.length; i++) {
     let randomNimber = Math.floor(
       Math.random() * (this.Max - this.Min + 1) + this.Min
@@ -128,6 +129,7 @@ let formLocation = document.getElementById('formLoaction');
 formLocation.addEventListener('submit', addNewLocation);
 function addNewLocation(event) {
   event.preventDefault();
+
   let rowTotal = document.getElementById('total');
   rowTotal.parentNode.removeChild(rowTotal);
   // eslint-disable-next-line no-unused-vars
@@ -137,49 +139,80 @@ function addNewLocation(event) {
   let averageNumber = event.target.averageNumber.value;
   // console.log(locationName,maxNumber,minNumber)
   // eslint-disable-next-line no-unused-vars
-  let newLocations = new Store(
-    locationName,
-    maxNumber,
-    minNumber,
-    averageNumber
-  );
-  // eslint-disable-next-line new-cap
-  newLocations.CalRandome();
-  // eslint-disable-next-line new-cap
-  newLocations.RandCook();
-  newLocations.render();
-  let trTableData = document.createElement('tr');
-  tableElement.appendChild(trTableData);
-  let tdTableData = document.createElement('td');
-  trTableData.appendChild(tdTableData);
-  trTableData.setAttribute('id', 'total');
-  tdTableData.textContent = 'Total';
 
-  let sumTotal = 0;
-  for (let i = 0; i < stores.length; i++) {
-    sumTotal += stores[i].total;
-  }
-  for (let i = 0; i < hoursCookies.length; i++) {
-    let sumResult = 0;
-    for (let index = 0; index < stores.length; index++) {
-      let dataFromArray = stores[index].cookiePerHour[i];
-      sumResult += dataFromArray;
-    }
+  if (stores2.indexOf(locationName) !== -1) {
+    console.log('found');
+    let trTableData = document.createElement('tr');
+    tableElement.appendChild(trTableData);
     let tdTableData = document.createElement('td');
-    tdTableData.textContent = sumResult;
     trTableData.appendChild(tdTableData);
-    console.log('the result: ' + sumResult);
-  }
-  let tdTotail = document.createElement('td');
-  trTableData.appendChild(tdTotail);
-  tdTotail.textContent = sumTotal;
-}
+    trTableData.setAttribute('id', 'total');
+    tdTableData.textContent = 'Total';
 
-// let btnSubmit = document.getElementById('btnSubmit');
-// btnSubmit.addEventListener('click', (e) => {
-//   let select = document.getElementById('total');
-//   select.parentNode.removeChild(select);
-// });
+    let sumTotal = 0;
+    for (let i = 0; i < stores.length; i++) {
+      sumTotal += stores[i].total;
+    }
+    for (let i = 0; i < hoursCookies.length; i++) {
+      let sumResult = 0;
+      for (let index = 0; index < stores.length; index++) {
+        let dataFromArray = stores[index].cookiePerHour[i];
+        sumResult += dataFromArray;
+      }
+      let tdTableData = document.createElement('td');
+      tdTableData.textContent = sumResult;
+      trTableData.appendChild(tdTableData);
+      // console.log('the result: ' + sumResult);
+    }
+    let tdTotail = document.createElement('td');
+    trTableData.appendChild(tdTotail);
+    tdTotail.textContent = sumTotal;
+    alert('This roe already it\'s found');
+  } else {
+    console.log('notfound');
+    let newLocations = new Store(
+      locationName,
+      maxNumber,
+      minNumber,
+      averageNumber
+    );
+    // eslint-disable-next-line new-cap
+    newLocations.CalRandome();
+    // eslint-disable-next-line new-cap
+    newLocations.RandCook();
+    newLocations.render();
+    let trTableData = document.createElement('tr');
+    tableElement.appendChild(trTableData);
+    let tdTableData = document.createElement('td');
+    trTableData.appendChild(tdTableData);
+    trTableData.setAttribute('id', 'total');
+    tdTableData.textContent = 'Total';
+
+    let sumTotal = 0;
+    for (let i = 0; i < stores.length; i++) {
+      sumTotal += stores[i].total;
+    }
+    for (let i = 0; i < hoursCookies.length; i++) {
+      let sumResult = 0;
+      for (let index = 0; index < stores.length; index++) {
+        let dataFromArray = stores[index].cookiePerHour[i];
+        sumResult += dataFromArray;
+      }
+      let tdTableData = document.createElement('td');
+      tdTableData.textContent = sumResult;
+      trTableData.appendChild(tdTableData);
+      // console.log('the result: ' + sumResult);
+    }
+    let tdTotail = document.createElement('td');
+    trTableData.appendChild(tdTotail);
+    tdTotail.textContent = sumTotal;
+  }
+  // eslint-disable-next-line no-unused-vars
+  for (let i = 0; i < stores.length; i++) {
+    stores2.push(stores[i].locationName);
+  }
+  console.log(stores2);
+}
 
 /****************** */
 let trTableData = document.createElement('tr');
@@ -202,31 +235,10 @@ for (let i = 0; i < hoursCookies.length; i++) {
   let tdTableData = document.createElement('td');
   tdTableData.textContent = sumResult;
   trTableData.appendChild(tdTableData);
-  console.log('the result: ' + sumResult);
+  // console.log('the result: ' + sumResult);
 }
 let tdTotail = document.createElement('td');
 trTableData.appendChild(tdTotail);
 tdTotail.textContent = sumTotal;
 
 /************************** */
-
-/********************** */
-// let formLocation=document.getElementById('formLoaction');
-
-// formLocation.addEventListener('submit',addNewLocation);
-// function addNewLocation(event){
-//   event.preventDefault();
-//   // eslint-disable-next-line no-unused-vars
-//   let locationName=event.target.locationName.value;
-//   let maxNumber=event.target.maxNumber.value;
-//   let minNumber=event.target.minNumber.value;
-//   let averageNumber=event.target.averageNumber.value;
-//   // console.log(locationName,maxNumber,minNumber)
-//   // eslint-disable-next-line no-unused-vars
-//   let newLocations = new Store(locationName, maxNumber, minNumber, averageNumber);
-
-//   newLocations.RandCook();
-//   newLocations.render();
-// }
-
-/**************************** */
