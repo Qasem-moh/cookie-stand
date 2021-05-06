@@ -45,10 +45,13 @@ Store.prototype.CalRandome = function () {
     this.randomCou.push(randomNimber);
   }
 };
+/************************ */
+
 /******************** */
 let container = document.getElementById('container');
 let tableElement = document.createElement('table');
 container.appendChild(tableElement);
+
 let trElement = document.createElement('tr');
 tableElement.appendChild(trElement);
 let thElement = document.createElement('th');
@@ -118,40 +121,112 @@ Paris.RandCook();
 Paris.render();
 console.log(stores);
 //  console.log(stores[0].cookiePerHour[0])
+
+/************************ */
+let formLocation = document.getElementById('formLoaction');
+
+formLocation.addEventListener('submit', addNewLocation);
+function addNewLocation(event) {
+  event.preventDefault();
+  let rowTotal = document.getElementById('total');
+  rowTotal.parentNode.removeChild(rowTotal);
+  // eslint-disable-next-line no-unused-vars
+  let locationName = event.target.locationName.value;
+  let maxNumber = event.target.maxNumber.value;
+  let minNumber = event.target.minNumber.value;
+  let averageNumber = event.target.averageNumber.value;
+  // console.log(locationName,maxNumber,minNumber)
+  // eslint-disable-next-line no-unused-vars
+  let newLocations = new Store(
+    locationName,
+    maxNumber,
+    minNumber,
+    averageNumber
+  );
+  // eslint-disable-next-line new-cap
+  newLocations.CalRandome();
+  // eslint-disable-next-line new-cap
+  newLocations.RandCook();
+  newLocations.render();
+  let trTableData = document.createElement('tr');
+  tableElement.appendChild(trTableData);
+  let tdTableData = document.createElement('td');
+  trTableData.appendChild(tdTableData);
+  trTableData.setAttribute('id', 'total');
+  tdTableData.textContent = 'Total';
+
+  let sumTotal = 0;
+  for (let i = 0; i < stores.length; i++) {
+    sumTotal += stores[i].total;
+  }
+  for (let i = 0; i < hoursCookies.length; i++) {
+    let sumResult = 0;
+    for (let index = 0; index < stores.length; index++) {
+      let dataFromArray = stores[index].cookiePerHour[i];
+      sumResult += dataFromArray;
+    }
+    let tdTableData = document.createElement('td');
+    tdTableData.textContent = sumResult;
+    trTableData.appendChild(tdTableData);
+    console.log('the result: ' + sumResult);
+  }
+  let tdTotail = document.createElement('td');
+  trTableData.appendChild(tdTotail);
+  tdTotail.textContent = sumTotal;
+}
+
+// let btnSubmit = document.getElementById('btnSubmit');
+// btnSubmit.addEventListener('click', (e) => {
+//   let select = document.getElementById('total');
+//   select.parentNode.removeChild(select);
+// });
+
+/****************** */
 let trTableData = document.createElement('tr');
 tableElement.appendChild(trTableData);
 let tdTableData = document.createElement('td');
 trTableData.appendChild(tdTableData);
+trTableData.setAttribute('id', 'total');
 tdTableData.textContent = 'Total';
 
-
-let sumTotal=0;
-for (let i=0;i<stores.length;i++){
-  sumTotal+=stores[i].total;
+let sumTotal = 0;
+for (let i = 0; i < stores.length; i++) {
+  sumTotal += stores[i].total;
 }
 for (let i = 0; i < hoursCookies.length; i++) {
   let sumResult = 0;
   for (let index = 0; index < stores.length; index++) {
     let dataFromArray = stores[index].cookiePerHour[i];
     sumResult += dataFromArray;
-
   }
   let tdTableData = document.createElement('td');
-  tdTableData.textContent=sumResult;
+  tdTableData.textContent = sumResult;
   trTableData.appendChild(tdTableData);
   console.log('the result: ' + sumResult);
 }
-let tdTotail=document.createElement('td');
+let tdTotail = document.createElement('td');
 trTableData.appendChild(tdTotail);
-tdTotail.textContent=sumTotal;
-
-
-
-
-
-
+tdTotail.textContent = sumTotal;
 
 /************************** */
 
+/********************** */
+// let formLocation=document.getElementById('formLoaction');
 
+// formLocation.addEventListener('submit',addNewLocation);
+// function addNewLocation(event){
+//   event.preventDefault();
+//   // eslint-disable-next-line no-unused-vars
+//   let locationName=event.target.locationName.value;
+//   let maxNumber=event.target.maxNumber.value;
+//   let minNumber=event.target.minNumber.value;
+//   let averageNumber=event.target.averageNumber.value;
+//   // console.log(locationName,maxNumber,minNumber)
+//   // eslint-disable-next-line no-unused-vars
+//   let newLocations = new Store(locationName, maxNumber, minNumber, averageNumber);
 
+//   newLocations.RandCook();
+//   newLocations.render();
+// }
+
+/**************************** */
