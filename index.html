@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/index.css" />
-    <link rel="stylesheet" href="./css/check.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css'><link rel="stylesheet" href="./style.css">
-    <title>Cookie </title>
+    <link rel="stylesheet" href="./css/check.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Cookie</title>
   </head>
   <body>
     <header>
@@ -23,9 +27,8 @@
         </ul>
       </nav>
     </header>
-    
+
     <main>
-      
       <div id="container"></div>
 
       <!--check mode-->
@@ -37,9 +40,31 @@
           <div class="ball"></div>
         </label>
       </div>
-      
-     <!---check mode-->
-  
+
+      <!---check mode-->
+      <!--Form -->
+      <form action="" id="formLoaction">
+        <fieldset>
+          <legend>Cookie Stand</legend>
+
+          <label for="locationName">Location Name</label>
+          <input type="text" id="locationName" name="locationName" />
+
+          <label for="maxNumber">Max Number</label>
+          <input type="text" id="maxNumber" name="maxNumber" />
+
+          <label for="minNumber">Min Number</label>
+          <input type="text" id="minNumber" name="minNumber" />
+
+          <label for="averageNumber">Average Number</label>
+          <input type="text" id="averageNumber" name="averageNumber" />
+
+          <button type="submit" value="Add Location" id="btnSubmit">
+            Add Location
+          </button>
+        </fieldset>
+      </form>
+      <!---->
     </main>
     <footer></footer>
     <script src="./js/index.js"></script>
