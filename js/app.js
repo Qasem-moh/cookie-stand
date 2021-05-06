@@ -84,139 +84,139 @@ seattleCookies.renderDataInHtml();
 // //tokyo
 // /*********************************************************** */
 
-// let tokyoCookies = {
-//   //define max&min&average
-//   StoreName: "tokyo",
-//   maxCustomrePerHour: 65,
-//   minCustomrePerHour: 23,
-//   averagCustomrePerHour: 6.3,
-//   randomeCustomrePerHour: [],
-//   salesCustomrePerHour: [],
+let tokyoCookies = {
+  //define max&min&average
+  StoreName: "tokyo",
+  maxCustomrePerHour: 65,
+  minCustomrePerHour: 23,
+  averagCustomrePerHour: 6.3,
+  randomeCustomrePerHour: [],
+  salesCustomrePerHour: [],
 
-//   totalCustomrePerHour: 0,
+  totalCustomrePerHour: 0,
 
-//   //found randome randomeCustomrePerHour number
-//   randomeCustomrePerHourNumber: function (min, max) {
-//     for (let randhour = 0; randhour < hoursCookies.length; randhour++) {
-//       this.randomeCustomrePerHour.push(
-//         Math.floor(
-//           Math.random() *
-//             (this.maxCustomrePerHour - this.minCustomrePerHour + 1) +
-//             this.minCustomrePerHour
-//         )
-//       );
-//     }
-//   },
+  //found randome randomeCustomrePerHour number
+  randomeCustomrePerHourNumber: function (min, max) {
+    for (let randhour = 0; randhour < hoursCookies.length; randhour++) {
+      this.randomeCustomrePerHour.push(
+        Math.floor(
+          Math.random() *
+            (this.maxCustomrePerHour - this.minCustomrePerHour + 1) +
+            this.minCustomrePerHour
+        )
+      );
+    }
+  },
 
-//   // found averagCustomrePerHour and do totalCustomrePerHour
-//   salesCustomrePerHourAv: function () {
-//     for (let i = 0; i < hoursCookies.length; i++) {
-//       this.salesCustomrePerHour.push(
-//         Math.ceil(this.randomeCustomrePerHour[i] * this.averagCustomrePerHour)
-//       );
-//       //assign value to totalCustomrePerHour
-//       this.totalCustomrePerHour += this.salesCustomrePerHour[i];
-//     }
-//   },
-//   // add Html Elements
-//   renderDataInHtml: function () {
-//     //define conatner to render Element
-//     let container = document.getElementById("container");
-//     //define title Seattle
-//     let h3Element = document.createElement("h3");
-//     // append h3 to conatiner
-//     container.appendChild(h3Element);
-//     // assign value to h3
-//     h3Element.textContent = this.StoreName;
-//     //define create unorder list
-//     let ulElement = document.createElement("ul");
-//     //append unorder list to container
-//     container.appendChild(ulElement);
+  // found averagCustomrePerHour and do totalCustomrePerHour
+  salesCustomrePerHourAv: function () {
+    for (let i = 0; i < hoursCookies.length; i++) {
+      this.salesCustomrePerHour.push(
+        Math.ceil(this.randomeCustomrePerHour[i] * this.averagCustomrePerHour)
+      );
+      //assign value to totalCustomrePerHour
+      this.totalCustomrePerHour += this.salesCustomrePerHour[i];
+    }
+  },
+  // add Html Elements
+  renderDataInHtml: function () {
+    //define conatner to render Element
+    let container = document.getElementById("container");
+    //define title Seattle
+    let h3Element = document.createElement("h3");
+    // append h3 to conatiner
+    container.appendChild(h3Element);
+    // assign value to h3
+    h3Element.textContent = this.StoreName;
+    //define create unorder list
+    let ulElement = document.createElement("ul");
+    //append unorder list to container
+    container.appendChild(ulElement);
 
-//     for (let index = 0; index < hoursCookies.length; index++) {
-//       let liElement = document.createElement("li");
-//       ulElement.appendChild(liElement);
-//       liElement.textContent = `${hoursCookies[index]}:${this.salesCustomrePerHour[index]} cookies`;
-//     }
-//   },
-// };
-// //called function
-// tokyoCookies.randomeCustomrePerHourNumber(
-//   tokyoCookies.minCustomrePerHour,
-//   tokyoCookies.maxCustomrePerHour
-// );
+    for (let index = 0; index < hoursCookies.length; index++) {
+      let liElement = document.createElement("li");
+      ulElement.appendChild(liElement);
+      liElement.textContent = `${hoursCookies[index]}:${this.salesCustomrePerHour[index]} cookies`;
+    }
+  },
+};
+//called function
+tokyoCookies.randomeCustomrePerHourNumber(
+  tokyoCookies.minCustomrePerHour,
+  tokyoCookies.maxCustomrePerHour
+);
 
-// tokyoCookies.salesCustomrePerHourAv();
-// tokyoCookies.renderDataInHtml();
-// // /*********************************************************** */
+tokyoCookies.salesCustomrePerHourAv();
+tokyoCookies.renderDataInHtml();
+// /*********************************************************** */
 
-// // //Dubai
-// // /*********************************************************** */
+// //Dubai
+// /*********************************************************** */
 
-// let DubaiCookies = {
-//   //define max&min&average
-//   StoreName: "Dubai",
-//   maxCustomrePerHour: 65,
-//   minCustomrePerHour: 23,
-//   averagCustomrePerHour: 6.3,
-//   randomeCustomrePerHour: [],
-//   salesCustomrePerHour: [],
+let DubaiCookies = {
+  //define max&min&average
+  StoreName: "Dubai",
+  maxCustomrePerHour: 65,
+  minCustomrePerHour: 23,
+  averagCustomrePerHour: 6.3,
+  randomeCustomrePerHour: [],
+  salesCustomrePerHour: [],
 
-//   totalCustomrePerHour: 0,
+  totalCustomrePerHour: 0,
 
-//   //found randome randomeCustomrePerHour number
-//   randomeCustomrePerHourNumber: function (min, max) {
-//     for (let randhour = 0; randhour < hoursCookies.length; randhour++) {
-//       this.randomeCustomrePerHour.push(
-//         Math.floor(
-//           Math.random() *
-//             (this.maxCustomrePerHour - this.minCustomrePerHour + 1) +
-//             this.minCustomrePerHour
-//         )
-//       );
-//     }
-//   },
+  //found randome randomeCustomrePerHour number
+  randomeCustomrePerHourNumber: function (min, max) {
+    for (let randhour = 0; randhour < hoursCookies.length; randhour++) {
+      this.randomeCustomrePerHour.push(
+        Math.floor(
+          Math.random() *
+            (this.maxCustomrePerHour - this.minCustomrePerHour + 1) +
+            this.minCustomrePerHour
+        )
+      );
+    }
+  },
 
-//   // found averagCustomrePerHour and do totalCustomrePerHour
-//   salesCustomrePerHourAv: function () {
-//     for (let i = 0; i < hoursCookies.length; i++) {
-//       this.salesCustomrePerHour.push(
-//         Math.ceil(this.randomeCustomrePerHour[i] * this.averagCustomrePerHour)
-//       );
-//       //assign value to totalCustomrePerHour
-//       this.totalCustomrePerHour += this.salesCustomrePerHour[i];
-//     }
-//   },
-//   // add Html Elements
-//   renderDataInHtml: function () {
-//     //define conatner to render Element
-//     let container = document.getElementById("container");
-//     //define title Seattle
-//     let h3Element = document.createElement("h3");
-//     // append h3 to conatiner
-//     container.appendChild(h3Element);
-//     // assign value to h3
-//     h3Element.textContent = this.StoreName;
-//     //define create unorder list
-//     let ulElement = document.createElement("ul");
-//     //append unorder list to container
-//     container.appendChild(ulElement);
+  // found averagCustomrePerHour and do totalCustomrePerHour
+  salesCustomrePerHourAv: function () {
+    for (let i = 0; i < hoursCookies.length; i++) {
+      this.salesCustomrePerHour.push(
+        Math.ceil(this.randomeCustomrePerHour[i] * this.averagCustomrePerHour)
+      );
+      //assign value to totalCustomrePerHour
+      this.totalCustomrePerHour += this.salesCustomrePerHour[i];
+    }
+  },
+  // add Html Elements
+  renderDataInHtml: function () {
+    //define conatner to render Element
+    let container = document.getElementById("container");
+    //define title Seattle
+    let h3Element = document.createElement("h3");
+    // append h3 to conatiner
+    container.appendChild(h3Element);
+    // assign value to h3
+    h3Element.textContent = this.StoreName;
+    //define create unorder list
+    let ulElement = document.createElement("ul");
+    //append unorder list to container
+    container.appendChild(ulElement);
 
-//     for (let index = 0; index < hoursCookies.length; index++) {
-//       let liElement = document.createElement("li");
-//       ulElement.appendChild(liElement);
-//       liElement.textContent = `${hoursCookies[index]}:${this.salesCustomrePerHour[index]} cookies`;
-//     }
-//   },
-// };
-// //called function
-// DubaiCookies.randomeCustomrePerHourNumber(
-//   DubaiCookies.minCustomrePerHour,
-//   DubaiCookies.maxCustomrePerHour
-// );
+    for (let index = 0; index < hoursCookies.length; index++) {
+      let liElement = document.createElement("li");
+      ulElement.appendChild(liElement);
+      liElement.textContent = `${hoursCookies[index]}:${this.salesCustomrePerHour[index]} cookies`;
+    }
+  },
+};
+//called function
+DubaiCookies.randomeCustomrePerHourNumber(
+  DubaiCookies.minCustomrePerHour,
+  DubaiCookies.maxCustomrePerHour
+);
 
-// DubaiCookies.salesCustomrePerHourAv();
-// DubaiCookies.renderDataInHtml();
+DubaiCookies.salesCustomrePerHourAv();
+DubaiCookies.renderDataInHtml();
 // //******************************************** */
 
 // //Paris

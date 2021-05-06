@@ -1,18 +1,29 @@
-
+*{
+  box-sizing: border-box;
+}
+table{
+  margin: auto;
+  margin-bottom: 15px;
+}
 table,
 tr,
 th,
 td {
-  border: 1px solid red;
+  border: 3px solid rgb(15, 69, 114);
   justify-content: center;
   align-items: center;
   justify-items: center;
+  border-style: groove;
+  text-align: center;
+  padding: 15px;
 }
 nav {
   width: 100%;
   border: 1px solid;
   margin-bottom: 15px;
-  background-color: rgb(70, 64, 64);
+  background-color: rgb(197, 64, 64);
+ 
+ 
 }
 nav ul li {
   display: inline;
